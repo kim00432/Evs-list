@@ -1,23 +1,75 @@
+//List of the newest electric vehicles this year with their make, model, price and image
 const data = [
-  { id: 'abcd0001', title: 'Dune', author: 'Frank Herbert' },
-  { id: 'abcd0003', title: 'The Hobbit', author: 'J. R. R. Tolkien' },
-  { id: 'abcd0005', title: 'Foundation', author: 'Isaac Asimov' },
-  { id: 'abcd0007', title: 'T Minus AI', author: 'Michael Kaanan' },
-  { id: 'abcd0009', title: 'Your Inner Fish', author: 'Neil Shubin' },
-  { id: 'defg0001', title: 'The Future is Faster Than You Think', author: '' },
-  { id: 'defg0003', title: 'The Shining', author: 'Stephen King' },
-  { id: 'defg0005', title: 'The Stand', author: 'Stephen King' },
-  { id: 'defg0007', title: 'It', author: 'Stephen King' },
-  { id: 'defg0009', title: 'Nineteen Eighty-Four', author: 'George Orwell' },
-  { id: 'mnpq2222', title: 'The Martian', author: 'Andy Weir' },
-  { id: 'mnpq4444', title: 'Ringworld', author: 'Larry Niven' },
   {
-    id: 'mnpq6666',
-    title: 'Life, the Universe, and Everything',
-    author: 'Douglas Adams',
+    id: 'abcd0001',
+    make: 'Tesla',
+    model: 'Model X',
+    price: 129990,
+    img: '/#'
   },
-  { id: 'mnpq8888', title: 'Sarum', author: 'Edward Rutherford' },
-  { id: 'mnpq0000', title: 'American Gods', author: 'Neil Gaiman' },
-];
+  {
+    id: 'abcd0003',
+    make: 'BMW',
+    model: 'i3s',
+    price: 47650,
+    img: '/#'
+  },
+  {
+    id: 'abcd0006',
+    make: 'Volvo',
+    model: 'C40 Recharge',
+    price: 58750,
+    img: '/#'
+  },
+  {
+    id: 'abcd0009',
+    make: 'Ford',
+    model: 'Mustang Mach E',
+    price: 42895,
+    img: '/#'
+  },
+  {
+    id: 'abcd0012',
+    make: 'GMC',
+    model: 'Hummer E1',
+    price: 112595,
+    img: '/#'
+  },
+  {
+    id: 'abcd0015',
+    make: 'Lucid',
+    model: 'Air',
+    price: 169000,
+    img: '/#'
+  },
+  {
+    id: 'abcd0018',
+    make: 'Nissan',
+    model: 'Leaf S',
+    price: 27400,
+    img: '/#'
+  },
+  {
+    id: 'abcd0021',
+    make: 'Polestar',
+    model: '2',
+    price: 45900,
+    img: '/#'
+  },
+  {
+    id: 'abcd0024',
+    make: 'Porsche',
+    model: 'Taycan',
+    price: 82700,
+    img: '/#'
+  },
+  {
+    id: 'abcd0027',
+    make: 'Tesla',
+    model: 'Model 3',
+    price: 44990,
+    img: '/#'
+  }
+]
 
-export default data;
+export default data
