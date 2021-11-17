@@ -1,11 +1,11 @@
 /** @jsxImportSource theme-ui */
 
-import Link from 'next/link';
+import Link from 'next/link'
 
-export default function Books({ books }) {
+export default function Cars ({ cars }) {
   return (
     <div sx={{ variant: 'containers.page' }}>
-      <h1 sx={{ py: 2, px: 4 }}>My Books</h1>
+      <h1 sx={{ py: 2, px: 4 }}>My Cars</h1>
 
       <div
         sx={{
@@ -14,15 +14,15 @@ export default function Books({ books }) {
           alignItems: 'center',
           flexWrap: 'wrap',
           py: 2,
-          px: 4,
+          px: 4
         }}
       >
-        {books.map((book) => (
-          <div key={book.id} sx={{ width: '33%', p: 2 }}>
-            <Link key={book.id} href="/books/[id]" as={`/books/${book.id}`}>
+        {cars.map(car => (
+          <div key={car.id} sx={{ width: '33%', p: 2 }}>
+            <Link key={car.id} href='/cars/[id]' as={`/cars/${car.id}`}>
               <a sx={{ textDecoration: 'none', cursor: 'pointer' }}>
                 <div sx={{ variant: 'containers.card' }}>
-                  <strong>{book.title}</strong>
+                  <strong>{car.make}</strong>
                 </div>
               </a>
             </Link>
@@ -30,5 +30,5 @@ export default function Books({ books }) {
         ))}
       </div>
     </div>
-  );
+  )
 }

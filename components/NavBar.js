@@ -1,12 +1,12 @@
 /** @jsxImportSource theme-ui */
-import Link from 'next/link';
+import Link from 'next/link'
 
 // See: https://theme-ui.com/components
 
 //alternate way of using the sx prop
 // sx={(theme)=> { now you have the theme object }}
 
-export default function NavBar() {
+export default function NavBar () {
   return (
     <header
       sx={{
@@ -18,7 +18,7 @@ export default function NavBar() {
         backgroundColor: `accent`,
         color: `text`,
         py: 2,
-        px: 4,
+        px: 4
       }}
     >
       <nav
@@ -27,21 +27,21 @@ export default function NavBar() {
           alignItems: 'center',
           justifyContent: 'space-between',
           variant: 'containers.page',
-          height: '100%',
+          height: '100%'
         }}
       >
-        <Link href="/">
+        <Link href='/'>
           <a sx={{ px: 2, fontWeight: 'bold', fontSize: 4, cursor: 'pointer' }}>
-            Book App
+            Cars App
           </a>
         </Link>
 
-        <Link href="/books">
+        <Link href='/cars'>
           <a sx={{ px: 2, color: 'text', fontSize: 3, cursor: 'pointer' }}>
-            Books
+            Cars
           </a>
         </Link>
       </nav>
     </header>
-  );
+  )
 }

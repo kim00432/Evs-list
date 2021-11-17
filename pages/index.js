@@ -1,9 +1,9 @@
 /** @jsxImportSource theme-ui */
 
-import Link from 'next/link';
+import Link from 'next/link'
 // import styles from '../styles/Index.module.css';
 
-export default function Home({ books }) {
+export default function Home ({ cars }) {
   // console.log(notes); //props.notes
 
   return (
@@ -13,16 +13,16 @@ export default function Home({ books }) {
           variant: 'containers.page',
           display: 'flex',
           alignItems: 'flex-start',
-          height: '100%',
+          height: '100%'
         }}
       >
         <div>
-          <h1 sx={{ fontSize: 8, p: 2 }}>Books App</h1>
+          <h1 sx={{ fontSize: 8, p: 2 }}>Cars App</h1>
           <p sx={{ p: 2 }}>
-            Click the Books link at the top to see all our books.
+            Click the Cars link at the top to see all our cars.
           </p>
           <p sx={{ p: 2 }}>
-            <Link href="/books">
+            <Link href='/cars'>
               <a>Or tap here if this is closer</a>
             </Link>
             .
@@ -30,5 +30,5 @@ export default function Home({ books }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
