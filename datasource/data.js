@@ -1,5 +1,5 @@
 //List of the newest electric vehicles this year with their make, model, price and image
-const data = [
+const cars = [
   {
     id: 'abcd0001',
     make: 'Tesla',
