@@ -72,4 +72,4 @@ const cars = [
   }
 ]
 
-export default data
+export default cars
