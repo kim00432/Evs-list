@@ -5,22 +5,22 @@ const getCar = id => cars.find(n => n.id === id)
 
 const handler = nc()
   .get((req, res) => {
-    const book = getCar(req.query.id)
+    const car = getCar(req.query.id)
 
-    if (!book) {
+    if (!car) {
       res.status(404)
       res.end()
       return
     }
 
-    res.json({ book: book })
+    res.json({ car: car })
   })
   .patch((req, res) => {
-    const book = getCar(req.query.id)
+    const car = getCar(req.query.id)
     // req.query contains all the querystring and path parts
     // that follow after /api/notes
 
-    if (!book) {
+    if (!car) {
       res.status(404)
       res.end()
       return
@@ -30,12 +30,12 @@ const handler = nc()
     const updated = { ...cars, ...req.body }
 
     cars[i] = updated
-    res.json({ book: updated })
+    res.json({ car: updated })
   })
   .delete((req, res) => {
-    const book = getCar(req.query.id)
+    const car = getCar(req.query.id)
 
-    if (!book) {
+    if (!car) {
       res.status(404)
       res.end()
       return
@@ -44,7 +44,7 @@ const handler = nc()
 
     cars.splice(i, 1)
 
-    res.json({ book: req.query.id })
+    res.json({ car: req.query.id })
   })
 
 export default handler
