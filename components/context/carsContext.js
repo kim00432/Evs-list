@@ -5,19 +5,19 @@ const CarsContext = createContext()
 function CarsProvider (props) {
   const [cars, setCars] = useState([null])
 
-  function getCar () {
+  function getCar (id) {
     // fetch /api/cars/[id]
   }
   function getCars () {
     // fetch /api/cars
   }
-  function updateCar () {
+  function updateCar (id, ...rest) {
     // fetch /api/cars/[id]
   }
-  function deleteCar () {
+  function deleteCar (id) {
     // fetch /api/cars/[id]
   }
-  function createCar () {
+  function createCar (params) {
     // fetch /api/cars
   }
 
