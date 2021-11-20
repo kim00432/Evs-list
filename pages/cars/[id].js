@@ -3,6 +3,7 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Note () {
   const router = useRouter()
@@ -33,6 +34,7 @@ export default function Note () {
     }
   }, [id])
 
+  // console.log(car.img)
   return (
     <div sx={{ variant: 'containers.page' }}>
       {car && (
@@ -40,6 +42,9 @@ export default function Note () {
           <h1>{car.model}</h1>
           <h2>{car.price}</h2>
           <h3>{car.id}</h3>
+          <Image src={`${car.img}`} alt="car image" width={200} height={150}/>
+          <button>Edit</button>
+          <button>Delete</button>
         </div>
       )}
       <p sx={{ px: 4 }}>

@@ -8,11 +8,12 @@ export default function Cars () {
   const [cars, fetchCall] = useCars()
 
   useEffect(() => {}, [cars])
+  console.log(cars)
 
   return (
     <div sx={{ variant: 'containers.page' }}>
       <h1 sx={{ py: 2, px: 4 }}>My Cars</h1>
-      {/* <div
+      <div
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -22,7 +23,7 @@ export default function Cars () {
           px: 4
         }}
       >
-        {cars.map(car => (
+        {cars.cars.map(car => (
           <div key={car.id} sx={{ width: '33%', p: 2 }}>
             <Link key={car.id} href='/cars/[id]' as={`/cars/${car.id}`}>
               <a sx={{ textDecoration: 'none', cursor: 'pointer' }}>
@@ -33,7 +34,7 @@ export default function Cars () {
             </Link>
           </div>
         ))}
-      </div> */}
+      </div>
     </div>
   )
 }
