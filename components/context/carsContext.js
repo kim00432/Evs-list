@@ -30,8 +30,8 @@ function CarsProvider (props) {
     } else if (obj.method === 'DELETE' && obj.payload.id) {
       console.log(`delete car request: ${obj.payload.id}`)
 
-      let url = `api/cars/${obj.payload.id}`
-      fetch(url, { method: 'DELETE', payload: obj.payload })
+      let url = `/api/cars/${obj.payload.id}`
+      fetch(url, { method: 'DELETE' })
         .then(resp => {
           if (!resp.ok) throw new Error(resp.statusText)
           return resp.json()
@@ -45,7 +45,7 @@ function CarsProvider (props) {
     } else if (obj.method === 'PATCH' && obj.payload.id) {
       console.log(`update car request: ${obj.payload.id}`)
 
-      let url = `api/cars/${obj.payload.id}`
+      let url = `/api/cars/${obj.payload.id}`
       fetch(url, { method: 'PATCH', payload: obj.payload })
         .then(resp => {
           if (!resp.ok) throw new Error(resp.statusText)
@@ -63,7 +63,7 @@ function CarsProvider (props) {
 
       const id = cuid()
       const newCar = { ...obj.payload, id }
-      let url = `api/cars/`
+      let url = `/api/cars/`
       fetch(url, { method: 'POST', payload: newCar })
         .then(resp => {
           if (!resp.ok) throw new Error(resp.statusText)
