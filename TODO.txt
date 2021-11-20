@@ -1,0 +1,10 @@
+- Fix PATCH route on backend
+
+- CAR PAGE:
+  - Display images
+  - Have button for edit
+  - Have button for delete
+
+- Have button for add new car
+
+- Styling
