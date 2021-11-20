@@ -8,7 +8,6 @@ export default function Cars () {
   const [cars, fetchCall] = useCars()
 
   useEffect(() => {}, [cars])
-  console.log(cars)
 
   return (
     <div sx={{ variant: 'containers.page' }}>
