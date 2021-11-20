@@ -12,7 +12,6 @@ export default function Cars () {
   return (
     <div sx={{ variant: 'containers.page' }}>
       <h1 sx={{ py: 2, px: 4 }}>My Cars</h1>
-
       {/* <div
         sx={{
           display: 'flex',
