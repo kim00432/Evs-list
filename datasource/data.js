@@ -12,7 +12,7 @@ const cars = [
     make: 'BMW',
     model: 'i3s',
     price: 47650,
-    img: '/img/BMWi3S/jpeg'
+    img: '/img/BMWi3S.jpeg'
   },
   {
     id: 'abcd0006',
@@ -68,7 +68,7 @@ const cars = [
     make: 'Tesla',
     model: 'Model 3',
     price: 44990,
-    img: '/img/TeslaModel3'
+    img: '/img/TeslaModel3.jpeg'
   }
 ]
 
