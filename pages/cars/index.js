@@ -1,13 +1,19 @@
 /** @jsxImportSource theme-ui */
 
 import Link from 'next/link'
+import { useCars } from '../../components/context/carsContext'
+import { useEffect } from 'react'
 
-export default function Cars ({ cars }) {
+export default function Cars () {
+  const [cars, fetchCall] = useCars()
+
+  useEffect(() => {}, [cars])
+
   return (
     <div sx={{ variant: 'containers.page' }}>
       <h1 sx={{ py: 2, px: 4 }}>My Cars</h1>
 
-      <div
+      {/* <div
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -28,7 +34,7 @@ export default function Cars ({ cars }) {
             </Link>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }
