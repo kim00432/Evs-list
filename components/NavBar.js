@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 import Link from 'next/link'
+import { useRouter } from 'next/dist/client/router'
 
 // See: https://theme-ui.com/components
 
@@ -7,6 +8,15 @@ import Link from 'next/link'
 // sx={(theme)=> { now you have the theme object }}
 
 export default function NavBar () {
+  let routeListener = useRouter().pathname
+  let onAddPage = '/cars/create'
+
+  function locationListener () {
+    if (routeListener === onAddPage) {
+      return { display: 'none' }
+    }
+  }
+
   return (
     <header
       sx={{
@@ -41,6 +51,10 @@ export default function NavBar () {
             Cars
           </a>
         </Link>
+
+        <button style={locationListener()}>
+          <Link href='/cars/create'>Add car</Link>
+        </button>
       </nav>
     </header>
   )
