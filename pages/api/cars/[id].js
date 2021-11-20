@@ -26,7 +26,7 @@ const handler = nc()
       return
     }
 
-    const i = cars.findIndex(n => n.id === req.query.id)
+    const i = cars.findIndex(car => car.id === req.query.id)
     const updated = { ...cars, ...req.body }
 
     cars[i] = updated
@@ -40,7 +40,7 @@ const handler = nc()
       res.end()
       return
     }
-    const carIndex = cars.findIndex(n => n.id === req.query.id)
+    const carIndex = cars.findIndex(car => car.id === req.query.id)
 
     cars.splice(carIndex, 1)
 

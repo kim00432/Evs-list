@@ -15,13 +15,13 @@ export default function Note () {
   const [make, setMake] = useState()
   const [model, setModel] = useState()
   const [price, setPrice] = useState()
+  const [img, setImg] = useState()
 
 
   
   useEffect(() => {
     console.log(`Fetching /api/cars/${id}`)
     let url = `/api/cars/${id}`
-
     if (id) {
       fetch(url, { method: 'GET' })
         .then(resp => {
@@ -44,9 +44,9 @@ export default function Note () {
   }, [id])
 
   
-  
   function handleEdit() {
     setEdit(true)
+    setImg(car.img)
     setMake(car.make)
     setModel(car.model)
     setPrice(car.price)
@@ -56,6 +56,21 @@ export default function Note () {
     setEdit(false)
   }
   
+  async function handleSave(ev){
+    setEdit(false)
+    setMake('')
+    setModel('')
+    setPrice('')
+    const updatedCar = {
+      img: img,
+      make: make,
+      model: model, 
+      price: price,
+    }
+    console.log({id: car.id, ...updatedCar})
+    // await fetchCall({ method: 'PATCH', payload: {id: car.id, ...updatedCar}})
+  }
+
   function handleSubmit(ev) {
     ev.PreventDefault()
   }
@@ -67,12 +82,6 @@ export default function Note () {
     router.push('/cars')
   }
 
-  function handleSave(ev){
-    setEdit(false)
-    setMake('')
-    setModel('')
-    setPrice('')
-  }
   
 
 
@@ -83,33 +92,41 @@ export default function Note () {
           <a>Back to List</a>
         </Link>
       </p>
-      {edit? 
-      (<from onSubmit={handleSubmit}>
+      {edit ? 
+      (<form onSubmit={handleSubmit}>
         <div sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            px: 2
-          }}>
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          px: 2,
+          fontSize: 3
+        }}>
               <Image src={`${car.img}`} alt="car image" width={250} height={200}/>
               <div sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              px: 50
-            }}>
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                px: 50
+              }}>
+                <h2 sx={{ py: 2 }}>Edit the detail</h2>
+                <label htmlFor='url'>Image link:</label>
+                <input type="text" value={img} onChange={(e)=> setUrl(e.target.value)}/>
+                <label htmlFor='make'>Make:</label>
                 <input type="text" value={make} onChange={(e)=> setMake(e.target.value)}/>
+                <label htmlFor='model'>Model:</label>
                 <input type="text" value={model} onChange={(e)=> setModel(e.target.value)}/>
+                <label htmlFor='price'>Price:</label>
                 <input type="text" value={price} onChange={(e)=> setPrice(e.target.value)}/>
                 <div>
-                    <button onClick={handleSave}>Save</button>
+                    <button type="submit" onClick={handleSave}>Save</button>
                     <button onClick={handleCancel}>Cancel</button>
                 </div>
               </div>
           </div>
-        </from>) : 
-      (car && <div sx={{ py: 2, px: 4, fontSize: 5 }}>
+        </form>) : 
+      (car && 
+        <div sx={{ py: 2, px: 4, fontSize: 3 }}>
           <div sx={{
             display: 'flex',
             justifyContent: 'center',
@@ -122,10 +139,11 @@ export default function Note () {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'flex-start',
-              px: 50
+              px: 30
             }}>
-              <h5>{car.make} {car.model}</h5>
-              <h6>From CAN{`$ ${car.price}`}</h6>
+              <h2 sx={{ py: 2 }}>Car Detail of {car.make}</h2>
+              <h4>{car.make} {car.model}</h4>
+              <h4>From CAN{`$ ${car.price}`}</h4>
               <div>
                   <button onClick={handleEdit}>Edit</button>
                   <button onClick={handleDelete}>Delete</button>
