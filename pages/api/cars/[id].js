@@ -1,7 +1,7 @@
 import nc from 'next-connect'
 import cars from '../../../datasource/data'
 
-const getCar = id => cars.find(n => n.id === id)
+const getCar = id => cars.find(car => car.id === id)
 
 const handler = nc()
   .get((req, res) => {
@@ -40,9 +40,9 @@ const handler = nc()
       res.end()
       return
     }
-    const i = cars.findIndex(n => n.id === req.query.id)
+    const carIndex = cars.findIndex(n => n.id === req.query.id)
 
-    cars.splice(i, 1)
+    cars.splice(carIndex, 1)
 
     res.json({ car: req.query.id })
   })
