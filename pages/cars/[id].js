@@ -11,7 +11,7 @@ export default function Note () {
   const { id } = router.query
   const [car, setCar] = useState(null)
   const [cars, fetchCall] = useCars()
-  
+
   useEffect(() => {
     console.log(`Fetching /api/cars/${id}`)
     let url = `/api/cars/${id}`
@@ -37,9 +37,8 @@ export default function Note () {
     }
   }, [id])
 
-  const handleDelete = async () => {
-    await fetchCall({ method: 'DELETE', payload: car.id })
-    console.log(fetchCall({ method: 'DELETE', payload: car.id }))
+  const handleDelete = () => {
+    fetchCall({ method: 'DELETE', payload: { id: car.id } })
   }
 
   return (
@@ -49,7 +48,7 @@ export default function Note () {
           <h1>{car.model}</h1>
           <h2>{car.price}</h2>
           <h3>{car.id}</h3>
-          <Image src={`${car.img}`} alt="car image" width={200} height={150}/>
+          <Image src={`${car.img}`} alt='car image' width={200} height={150} />
           <button>Edit</button>
           <button onClick={handleDelete}>Delete</button>
         </div>
