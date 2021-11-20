@@ -3,7 +3,7 @@
 import Link from 'next/link'
 // import styles from '../styles/Index.module.css';
 
-export default function Home ({ cars }) {
+export default function Home () {
   // console.log(notes); //props.notes
 
   return (

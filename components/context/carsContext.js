@@ -1,32 +1,38 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 const CarsContext = createContext()
 
 function CarsProvider (props) {
-  const [cars, setCars] = useState([null])
+  const [cars, setCars] = useState(null)
 
-  function getCar (id) {
-    // fetch /api/cars/[id]
-  }
-  function getCars () {
-    // fetch /api/cars
-  }
-  function updateCar (id, ...rest) {
-    // fetch /api/cars/[id]
-  }
-  function deleteCar (id) {
-    // fetch /api/cars/[id]
-  }
-  function createCar (params) {
-    // fetch /api/cars
+  async function fetchCall (obj) {
+    // console.log(`received request: ${obj.method},${obj.payload}`)
+    // if (obj.method === 'GET' && obj.payload === null) {
+    //   let url = 'api/cars'
+    //   fetch(url, { method: 'GET' })
+    //     .then(resp => {
+    //       if (!resp.ok) throw new Error(resp.statusText)
+    //       return resp.json()
+    //     })
+    //     .then(data => {
+    //       console.log(`received data from request: ${data.cars}`)
+    //       setCars(data.cars)
+    //     })
+    //     .catch(console.error)
+    // }
   }
 
-  return (
-    <CarsContext.Provider
-      value={[cars, getCar, getCars, updateCar, deleteCar, createCar]}
-      {...props}
-    />
-  )
+  useEffect(() => {
+    async function getInitialData () {
+      const fetchedData = await fetch('/api/cars')
+      const cars = await fetchedData.json()
+      setCars(cars)
+      console.log(cars)
+    }
+    getInitialData()
+  }, [])
+
+  return <CarsContext.Provider value={[cars, fetchCall]} {...props} />
 }
 
 function useCars () {
