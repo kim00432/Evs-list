@@ -10,9 +10,9 @@ const handler = nc()
   })
   .post((req, res) => {
     //adds a new note
-    const car = req.body.payload
-    cars.push(car)
-    res.json({ car: car })
+    const newCar = req.body
+    cars.push(newCar)
+    res.json({ newCar: newCar })
   })
 
 export default handler
