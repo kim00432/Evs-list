@@ -1,17 +1,17 @@
-// /api/notes end point
+// /api/cars end point
 import nc from 'next-connect'
 import cars from '../../../datasource/data'
+import cuid from 'cuid'
 
 const handler = nc()
   .get((req, res) => {
-    //returns all notes
+    //returns all cars
     res.json({ cars: cars })
   })
   .post((req, res) => {
     //adds a new note
-    const id = Date.now()
-    const car = { ...req.body, id }
-    notes.push(car)
+    const car = req.body.payload
+    cars.push(car)
     res.json({ car: car })
   })
 
