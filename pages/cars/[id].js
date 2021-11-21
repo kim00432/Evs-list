@@ -60,7 +60,7 @@ export default function Note () {
       price: price,
       img: img
     }
-    await fetchCall({ method: 'PATCH', payload: { id: car.id, ...updatedCar }})
+    await fetchCall({ method: 'PATCH', payload: { id: car.id, ...updatedCar } })
     setCar({ id: car.id, ...updatedCar })
     console.log(car)
     setEdit(false)
@@ -118,7 +118,7 @@ export default function Note () {
               <input
                 type='text'
                 value={img}
-                onChange={e => setUrl(e.target.value)}
+                onChange={e => setImg(e.target.value)}
               />
               <label htmlFor='make'>Make:</label>
               <input
