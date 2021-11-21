@@ -64,7 +64,14 @@ function CarsProvider (props) {
       const id = cuid()
       const newCar = { ...obj.payload, id }
       let url = `/api/cars/`
-      fetch(url, { method: 'POST', payload: newCar })
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newCar)
+      })
         .then(resp => {
           if (!resp.ok) throw new Error(resp.statusText)
           return resp.json()
