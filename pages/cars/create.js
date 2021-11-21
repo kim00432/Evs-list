@@ -3,9 +3,11 @@
 import Link from 'next/dist/client/link'
 
 import { useCars } from '../../components/context/carsContext'
+import router, { useRouter } from 'next/router'
 
 export default function Create () {
   const [cars, fetchCall] = useCars()
+  const router = useRouter()
 
   const handleDelete = () => {
     fetchCall({ method: 'DELETE', payload: { id: car.id } })
@@ -19,6 +21,7 @@ export default function Create () {
     let url = ev.target.url.value
 
     fetchCall({ method: 'POST', payload: { make, model, price, url } })
+    router.push('/cars')
   }
 
   return (
