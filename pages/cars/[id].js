@@ -54,18 +54,19 @@ export default function Note () {
   }
 
   async function handleSave (ev) {
+    const updatedCar = {
+      make: make,
+      model: model,
+      price: price,
+      img: img
+    }
+    await fetchCall({ method: 'PATCH', payload: { id: car.id, ...updatedCar }})
+    setCar({ id: car.id, ...updatedCar })
+    console.log(car)
     setEdit(false)
     setMake('')
     setModel('')
     setPrice('')
-    const updatedCar = {
-      img: img,
-      make: make,
-      model: model,
-      price: price
-    }
-    console.log({ id: car.id, ...updatedCar })
-    await fetchCall({ method: 'PATCH', payload: { id: car.id, ...updatedCar } })
   }
 
   function handleSubmit (ev) {
