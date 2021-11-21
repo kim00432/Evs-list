@@ -3,13 +3,13 @@
 
 - allow web image urls to display on detail page
 
+?- The function inside your Context object that does the updating of state would use a switch case to look at the action property and then make the appropriate API call. If the API call is successful then the state value (with your data) inside of Context will be updated.
+
 - Styling
 
 - Update the /styles/theme.js to create your own theme. You can use the default theme or one of the other demo themes and build on top of that to create your theme, or you can just define your own theme entirely yourself.
 
 - Use the sx props to style all your app elements.
-
-?- The function inside your Context object that does the updating of state would use a switch case to look at the action property and then make the appropriate API call. If the API call is successful then the state value (with your data) inside of Context will be updated.
 
 - All pages should be designed as mobile-first and responsive.
 
