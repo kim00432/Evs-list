@@ -46,7 +46,14 @@ function CarsProvider (props) {
       console.log(`update car request: ${obj.payload.id}`)
 
       let url = `/api/cars/${obj.payload.id}`
-      fetch(url, { method: 'PATCH', payload: obj.payload })
+      fetch(url, {
+        method: 'PATCH',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj.payload)
+      })
         .then(resp => {
           if (!resp.ok) throw new Error(resp.statusText)
           return resp.json()
