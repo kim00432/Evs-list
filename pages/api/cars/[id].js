@@ -16,21 +16,20 @@ const handler = nc()
     res.json({ car: car })
   })
   .patch((req, res) => {
+    //gives current (old)car in data to update
     const car = getCar(req.query.id)
-    // req.query contains all the querystring and path parts
-    // that follow after /api/notes
-
     if (!car) {
       res.status(404)
       res.end()
       return
     }
 
-    const i = cars.findIndex(car => car.id === req.query.id)
-    const updated = { ...cars, ...req.body }
+    const indexOfCarToUpdate = cars.findIndex(car => car.id === req.query.id)
 
-    cars[i] = updated
-    res.json({ car: updated })
+    let updatedCar = req.body
+
+    cars[indexOfCarToUpdate] = updatedCar
+    res.json({ updatedCar: updatedCar })
   })
   .delete((req, res) => {
     const car = getCar(req.query.id)
