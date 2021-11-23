@@ -99,12 +99,21 @@ export default function Note () {
               fontSize: 3
             }}
           >
-            <Image
-              src={`${car.img}`}
-              alt='car image'
-              width={250}
-              height={200}
-            />
+            <div
+              className='images'
+              style={{
+                position: 'relative',
+                width: '100%',
+                paddingBottom: '30%'
+              }}
+            >
+              <Image
+                alt='car image'
+                src={`${car.img}`}
+                layout='fill'
+                objectFit='contain'
+              />
+            </div>
             <div
               sx={{
                 display: 'flex',
@@ -159,12 +168,21 @@ export default function Note () {
                 px: 2
               }}
             >
-              <Image
-                src={`${car.img}`}
-                alt='car image'
-                width={250}
-                height={200}
-              />
+              <div
+                className='images'
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  paddingBottom: '30%'
+                }}
+              >
+                <Image
+                  alt='car image'
+                  src={`${car.img}`}
+                  layout='fill'
+                  objectFit='contain'
+                />
+              </div>
               <div
                 sx={{
                   display: 'flex',
