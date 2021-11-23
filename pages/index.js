@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import Link from 'next/link'
-// import styles from '../styles/Index.module.css';
+import styles from '../styles/Index.module.css'
 
 export default function Home () {
   return (
