@@ -27,7 +27,8 @@ export default function Cars () {
             <Link key={car.id} href='/cars/[id]' as={`/cars/${car.id}`}>
               <a sx={{ textDecoration: 'none', cursor: 'pointer' }}>
                 <div sx={{ variant: 'containers.card' }}>
-                  <strong>{car.make}</strong>
+                  <h1>{car.make}</h1>
+                  <h2>{car.model}</h2>
                 </div>
               </a>
             </Link>
