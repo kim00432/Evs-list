@@ -1,9 +1,9 @@
 
 - refreshing /cars/ gives error - context call??
 
-- allow web image urls to display on detail page
+X allow web image urls to display on detail page
 
-?- The function inside your Context object that does the updating of state would use a switch case to look at the action property and then make the appropriate API call. If the API call is successful then the state value (with your data) inside of Context will be updated.
+X The function inside your Context object that does the updating of state would use a switch case to look at the action property and then make the appropriate API call. If the API call is successful then the state value (with your data) inside of Context will be updated.
 
 - Styling
 
