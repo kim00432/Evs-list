@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
+import theme from '../styles/theme'
 
 // See: https://theme-ui.com/components
 
@@ -15,19 +16,48 @@ export default function NavBar () {
   }
 
   return (
-    <header>
-      <nav>
-        <Link href='/'>
-          <a>Cars App</a>
-        </Link>
+    <header sx={{ ...theme.containers.fullWidthContainer, py: '18px' }}>
+      <nav sx={theme.components.centering}>
+        <div sx={{ display: 'flex' }}>
+          <Link href='/'>
+            <a sx={{ ...theme.fontSizes.header, ...theme.colors.accent }}>
+              EVs List
+            </a>
+          </Link>
+          <p
+            sx={{
+              pl: '9px',
+              ...theme.fontSizes.callout,
+              ...theme.colors.lightBody
+            }}
+          >
+            Next.JS
+          </p>
+        </div>
 
         <Link href='/cars'>
-          <a>Cars</a>
+          <a
+            sx={{
+              ...theme.components.links,
+              ...theme.fontSizes.headerLink,
+              ...theme.colors.darkenAccent
+            }}
+          >
+            Car list
+          </a>
         </Link>
 
-        <button style={locationListener()}>
-          <Link href='/cars/create'>Add car</Link>
-        </button>
+        <Link href='/cars/create'>
+          <a
+            style={locationListener()}
+            sx={{
+              ...theme.components.callToAction,
+              ...theme.fontSizes.headerLink
+            }}
+          >
+            Create new
+          </a>
+        </Link>
       </nav>
     </header>
   )
