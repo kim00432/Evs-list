@@ -1,35 +1,20 @@
 const theme = {
   config: {
     initialColorModeName: 'JC-Yoona',
-    useBorderBox: true,
-    useLocalStorage: true //to save mode in localstorage
+    useBorderBox: true
   },
   colors: {
-    text: '#454f5b',
+    body: '#000000',
     background: '#fff',
     primary: '#5c6ac4',
-    secondary: '#006fbb',
-    highlight: '#47c1bf',
-    muted: '#e6e6e6',
-    gray: '#dfe3e8',
-    accent: '#f49342',
-    darken: '#00044c',
-    modes: {
-      dark: {
-        text: '#3e4155',
-        background: '#000639',
-        primary: '#9c6ade',
-        secondary: '#b4e1fa',
-        highlight: '#b7ecec',
-        muted: '#e6e6e6'
-      }
-    }
+    secondary: '#006fbb'
   },
   containers: {
     page: {
+      display: 'flex',
+      justifyContext: 'center',
       width: '100%',
-      maxWidth: '960px',
-      m: 0,
+      maxWidth: '1200px',
       mx: 'auto'
     },
     card: {
