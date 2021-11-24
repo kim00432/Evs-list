@@ -12,7 +12,7 @@ export default function Home () {
           <h1 sx={theme.fontSizes.subHeader}>
             Welcome to our electronic vehicles database
           </h1>
-          <p>
+          <p sx={{ maxWidth: '590px' }}>
             Here you will be able to compare prices across different types of
             cars. Tap the link to get started!
           </p>
