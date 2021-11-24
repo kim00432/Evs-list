@@ -5,9 +5,9 @@ const theme = {
   },
   fontSizes: {
     header: { fontSize: '48px', fontWeight: '600' },
-    secondaryHeader: { fontSize: '36px' },
+    secondaryHeader: { fontSize: '36px', fontWeight: '500' },
     headerLink: { fontSize: '21px' },
-    subHeader: { fontSize: '24px' },
+    subHeader: { fontSize: '24px', fontWeight: '500' },
     body: { fontSize: '18px' },
     callout: { fontSize: '14px' }
   },
