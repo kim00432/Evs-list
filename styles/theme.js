@@ -26,7 +26,7 @@ const theme = {
       justifyContent: 'center',
       alignItems: 'center',
       width: '80vw',
-      height: '100vh',
+      minHeight: '80vh',
       maxWidth: '1200px',
       mx: '10vw'
     },
