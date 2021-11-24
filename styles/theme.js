@@ -6,10 +6,10 @@ const theme = {
   fontSizes: {
     header: { fontSize: '48px', fontWeight: '600' },
     secondaryHeader: { fontSize: '36px', fontWeight: '500' },
-    headerLink: { fontSize: '21px' },
+    headerLink: { fontSize: '21px', fontWeight: '400' },
     subHeader: { fontSize: '24px', fontWeight: '500' },
-    body: { fontSize: '18px' },
-    callout: { fontSize: '14px' }
+    body: { fontSize: '18px', fontWeight: '400' },
+    callout: { fontSize: '14px', fontWeight: '400' }
   },
   colors: {
     background: { color: '#ffffff' },
