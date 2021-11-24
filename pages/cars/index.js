@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useCars } from '../../components/context/carsContext'
 import { useEffect } from 'react'
+import theme from '../../styles/theme'
 
 export default function Cars () {
   const [cars, fetchCall] = useCars()
@@ -10,16 +11,44 @@ export default function Cars () {
   useEffect(() => {}, [cars])
 
   return (
-    <div>
+    <div
+      sx={{
+        ...theme.containers.fullWidthContainer,
+        justifyContent: 'center',
+        flexDirection: 'column'
+      }}
+    >
       <h1>My Cars</h1>
-      <div>
+      <div sx={theme.components.listGrid}>
         {cars.cars.map(car => (
-          <div key={car.id}>
+          <div key={car.id} sx={{ ...theme.containers.card }}>
             <Link key={car.id} href='/cars/[id]' as={`/cars/${car.id}`}>
               <a>
-                <div>
-                  <h1>{car.make}</h1>
-                  <h2>{car.model}</h2>
+                <div
+                  sx={{
+                    ...theme.components.centering
+                  }}
+                >
+                  <h1
+                    sx={{
+                      fontSize: '1em',
+                      margin: '0',
+                      ...theme.fontSizes.subHeader,
+                      ...theme.colors.body
+                    }}
+                  >
+                    {car.make}
+                  </h1>
+                  <h2
+                    sx={{
+                      fontSize: '1em',
+                      margin: '0',
+                      ...theme.fontSizes.body,
+                      ...theme.colors.body
+                    }}
+                  >
+                    {car.model}
+                  </h2>
                 </div>
               </a>
             </Link>
