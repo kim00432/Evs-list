@@ -15,10 +15,11 @@ export default function Cars () {
       sx={{
         ...theme.containers.fullWidthContainer,
         justifyContent: 'center',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        minHeight: '80vh'
       }}
     >
-      <h1>My Cars</h1>
+      <h1 sx={theme.fontSizes.secondaryHeader}>Cars</h1>
       <div sx={theme.components.listGrid}>
         {cars.cars.map(car => (
           <div key={car.id} sx={{ ...theme.containers.card }}>
