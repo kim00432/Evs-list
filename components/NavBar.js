@@ -16,7 +16,7 @@ export default function NavBar () {
   }
 
   return (
-    <header sx={{ ...theme.containers.fullWidthContainer, py: '18px' }}>
+    <header sx={{ ...theme.containers.fullWidthContainer, height: '15vh' }}>
       <nav sx={theme.components.centering}>
         <div sx={{ display: 'flex' }}>
           <Link href='/'>
