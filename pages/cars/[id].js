@@ -81,8 +81,8 @@ export default function Note () {
   }
 
   return (
-    <div sx={{ variant: 'containers.page' }}>
-      <p sx={{ px: 4 }}>
+    <div sx={{ variant: 'containers.page', flexDirection: 'column' }}>
+      <p sx={{ px: 1 }}>
         <Link href='/cars'>
           <a>Back to List</a>
         </Link>
@@ -92,43 +92,23 @@ export default function Note () {
           <div
             sx={{
               display: 'flex',
+              flexDirection: 'row',
               justifyContent: 'center',
               alignItems: 'center',
               flexWrap: 'wrap',
               px: 2,
-              fontSize: 3
+              fontSize: 10
             }}
           >
-            <div
-              className='images'
-              style={{
-                position: 'relative',
-                width: '100%',
-                paddingBottom: '30%'
-              }}
-            >
-              <Image
-                alt='car image'
-                src={`${car.img}`}
-                layout='fill'
-                objectFit='contain'
-              />
-            </div>
             <div
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'flex-start',
-                px: 50
+                px: 0
               }}
             >
               <h2 sx={{ py: 2 }}>Edit the detail</h2>
-              <label htmlFor='url'>Image link:</label>
-              <input
-                type='text'
-                value={img}
-                onChange={e => setImg(e.target.value)}
-              />
               <label htmlFor='make'>Make:</label>
               <input
                 type='text'
@@ -147,6 +127,12 @@ export default function Note () {
                 value={price}
                 onChange={e => setPrice(e.target.value)}
               />
+              <label htmlFor='url'>Image link:</label>
+              <input
+                type='text'
+                value={img}
+                onChange={e => setImg(e.target.value)}
+              />
               <div>
                 <button type='submit' onClick={handleSave}>
                   Save
@@ -154,14 +140,30 @@ export default function Note () {
                 <button onClick={handleCancel}>Cancel</button>
               </div>
             </div>
+            <div
+              className='images'
+              style={{
+                position: 'relative',
+                width: '50vw',
+                paddingBottom: '30%'
+              }}
+            >
+              <Image
+                alt='car image'
+                src={`${car.img}`}
+                layout='fill'
+                objectFit='contain'
+              />
+            </div>
           </div>
         </form>
       ) : (
         car && (
-          <div sx={{ py: 2, px: 4, fontSize: 3 }}>
+          <div sx={{ py: 2, px: 4, fontSize: 10 }}>
             <div
               sx={{
                 display: 'flex',
+                flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexWrap: 'wrap',
@@ -169,10 +171,29 @@ export default function Note () {
               }}
             >
               <div
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                }}
+              >
+                <div
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row'}}>
+                  <h2>{car.make}</h2><h4>{car.model}</h4>
+                </div>
+                <h4>From {`$ ${car.price.toLocaleString()}`}</h4>
+                <div>
+                  <button onClick={handleEdit}>Edit</button>
+                  <button onClick={handleDelete}>Delete</button>
+                </div>
+              </div>
+              <div
                 className='images'
                 style={{
                   position: 'relative',
-                  width: '100%',
+                  width: '50vw',
                   paddingBottom: '30%'
                 }}
               >
@@ -182,24 +203,6 @@ export default function Note () {
                   layout='fill'
                   objectFit='contain'
                 />
-              </div>
-              <div
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  px: 30
-                }}
-              >
-                <h2 sx={{ py: 2 }}>Car Detail of {car.make}</h2>
-                <h4>
-                  {car.make} {car.model}
-                </h4>
-                <h4>From CAN{`$ ${car.price}`}</h4>
-                <div>
-                  <button onClick={handleEdit}>Edit</button>
-                  <button onClick={handleDelete}>Delete</button>
-                </div>
               </div>
             </div>
           </div>
