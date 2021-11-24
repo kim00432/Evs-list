@@ -36,6 +36,13 @@ const theme = {
       alignItems: 'center',
       width: '80vw',
       mx: '10vw'
+    },
+    card: {
+      boxShadow: '0px 18px 42px rgba(5, 115, 166, 0.14)',
+      backgroundColor: '#00000',
+      borderRadius: '13px',
+      px: '36px',
+      py: '18px'
     }
   },
   components: {
@@ -58,6 +65,13 @@ const theme = {
       justifyContent: 'space-between',
       alignItems: 'center',
       width: '100%'
+    },
+    listGrid: {
+      width: '80vw',
+      maxWidth: '1200px',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+      gap: '18px'
     }
   }
 }
