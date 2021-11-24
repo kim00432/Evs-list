@@ -10,23 +10,14 @@ export default function Cars () {
   useEffect(() => {}, [cars])
 
   return (
-    <div sx={{ variant: 'containers.page' }}>
-      <h1 sx={{ py: 2, px: 4 }}>My Cars</h1>
-      <div
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          py: 2,
-          px: 4
-        }}
-      >
+    <div>
+      <h1>My Cars</h1>
+      <div>
         {cars.cars.map(car => (
-          <div key={car.id} sx={{ width: '33%', p: 2 }}>
+          <div key={car.id}>
             <Link key={car.id} href='/cars/[id]' as={`/cars/${car.id}`}>
-              <a sx={{ textDecoration: 'none', cursor: 'pointer' }}>
-                <div sx={{ variant: 'containers.card' }}>
+              <a>
+                <div>
                   <h1>{car.make}</h1>
                   <h2>{car.model}</h2>
                 </div>
