@@ -113,7 +113,8 @@ export default function Note () {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'flex-end',
-                px: 0
+                px: 0,
+                mr: '20px'
               }}
             >
               <span>
@@ -163,15 +164,17 @@ export default function Note () {
               className='images'
               style={{
                 position: 'relative',
-                width: '45vw',
-                paddingBottom: '30%'
+                width: '35vw',
+                paddingBottom: '30%',
+                transform: 'perspective(400px) rotateY(-10deg)',
+                boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.2)',
               }}
             >
               <Image
                 alt='car image'
                 src={`${car.img}`}
                 layout='fill'
-                objectFit='contain'
+                objectFit='cover'
               />
             </div>
           </div>
@@ -196,6 +199,7 @@ export default function Note () {
                   flexDirection: 'column',
                   alignItems: 'flex-end',
                   mt: '-10%',
+                  mr: '30px'
 
                 }}
               >
@@ -215,15 +219,17 @@ export default function Note () {
                 className='images'
                 style={{
                   position: 'relative',
-                  width: '45vw',
-                  paddingBottom: '30%'
+                  width: '35vw',
+                  paddingBottom: '30%',
+                  transform: 'perspective(400px) rotateY(-10deg)',
+                  boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.2)',
                 }}
               >
                 <Image
                   alt='car image'
                   src={`${car.img}`}
                   layout='fill'
-                  objectFit='contain'
+                  objectFit='cover'
                 />
               </div>
             </div>
