@@ -4,12 +4,12 @@ const theme = {
     useBorderBox: true
   },
   fontSizes: {
-    header: { fontSize: '48px', fontWeight: '600' },
-    secondaryHeader: { fontSize: '36px', fontWeight: '500' },
-    headerLink: { fontSize: '21px', fontWeight: '400' },
-    subHeader: { fontSize: '24px', fontWeight: '500' },
-    body: { fontSize: '18px', fontWeight: '400' },
-    callout: { fontSize: '14px', fontWeight: '400' }
+    header: { fontSize: ['15px', '30px', '48px'], fontWeight: '600' },
+    secondaryHeader: { fontSize: ['11px', '25px', '36px'], fontWeight: '500' },
+    headerLink: { fontSize: ['12px', '16px', '21px'], fontWeight: '400' },
+    subHeader: { fontSize: ['15px', '18px', '24px'], fontWeight: '500' },
+    body: { fontSize: ['14px', '18px'], fontWeight: '400' },
+    callout: { fontSize: ['12px', '14px'], fontWeight: '400' }
   },
   colors: {
     background: { color: '#ffffff' },
@@ -53,7 +53,7 @@ const theme = {
     },
     callToAction: {
       py: '10px',
-      px: '42px',
+      px: ['20px', '42px'],
       color: '#ffffff',
       backgroundColor: '#31B8EF',
       border: 'none',

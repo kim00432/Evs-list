@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useCars } from '../../components/context/carsContext'
+import theme from '../../styles/theme'
 
 export default function Note () {
   const router = useRouter()
@@ -16,6 +17,7 @@ export default function Note () {
   const [model, setModel] = useState()
   const [price, setPrice] = useState()
   const [img, setImg] = useState()
+
 
   useEffect(() => {
     console.log(`Fetching /api/cars/${id}`)
@@ -81,10 +83,16 @@ export default function Note () {
   }
 
   return (
-    <div sx={{ variant: 'containers.page', flexDirection: 'column' }}>
-      <p sx={{ px: 1 }}>
+    <div 
+    sx={{
+      ...theme.containers.fullWidthContainer,
+      justifyContent: 'center',
+      flexDirection: 'column',
+      minHeight: '80vh'
+    }}>
+      <p sx={{ml: '-90%', mt: '-10%'}}>
         <Link href='/cars'>
-          <a>Back to List</a>
+          <a>Back</a>
         </Link>
       </p>
       {edit ? (
@@ -95,7 +103,7 @@ export default function Note () {
               flexDirection: 'row',
               justifyContent: 'center',
               alignItems: 'center',
-              flexWrap: 'wrap',
+              // flexWrap: 'wrap',
               px: 2,
               fontSize: 10
             }}
@@ -104,55 +112,69 @@ export default function Note () {
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'flex-start',
-                px: 0
+                alignItems: 'flex-end',
+                px: 0,
+                mr: '20px'
               }}
             >
-              <h2 sx={{ py: 2 }}>Edit the detail</h2>
-              <label htmlFor='make'>Make:</label>
-              <input
+              <span>
+              <label sx={{...theme.fontSizes.callout, mr: 3}} htmlFor='make'>Make</label>
+              <input sx={{width: '15vw', height: '4vh', m: 1}}
                 type='text'
                 value={make}
                 onChange={e => setMake(e.target.value)}
               />
-              <label htmlFor='model'>Model:</label>
-              <input
+              </span>
+              <span>
+              <label sx={{...theme.fontSizes.callout, mr: 3}} htmlFor='model'>Model</label>
+              <input sx={{width: '15vw', height: '4vh', m: 1}}
                 type='text'
                 value={model}
                 onChange={e => setModel(e.target.value)}
               />
-              <label htmlFor='price'>Price:</label>
-              <input
+              </span>
+              <span>
+              <label sx={{...theme.fontSizes.callout, mr: 3}} htmlFor='price'>Price</label>
+              <input sx={{width: '15vw', height: '4vh', m: 1}}
                 type='text'
                 value={price}
                 onChange={e => setPrice(e.target.value)}
               />
-              <label htmlFor='url'>Image link:</label>
-              <input
-                type='text'
-                value={img}
-                onChange={e => setImg(e.target.value)}
-              />
+              </span>
               <div>
-                <button type='submit' onClick={handleSave}>
+                <button onClick={handleCancel}  
+                   sx={{
+                    ...theme.components.callToAction,
+                    ...theme.fontSizes.callout,
+                    backgroundColor: '#575757',
+                    borderRadius: '7px',
+                    m: 3
+                  }}>Cancel</button>
+                <button type='submit' onClick={handleSave}
+                  sx={{
+                    ...theme.components.callToAction, 
+                    ...theme.fontSizes.callout,
+                    borderRadius: '7px'
+                  }}>
                   Save
                 </button>
-                <button onClick={handleCancel}>Cancel</button>
               </div>
             </div>
             <div
               className='images'
               style={{
                 position: 'relative',
-                width: '50vw',
-                paddingBottom: '30%'
+                width: '35vw',
+                paddingBottom: '30%',
+                transform: 'perspective(400px) rotateY(-10deg)',
+                boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.2)',
               }}
             >
               <Image
                 alt='car image'
                 src={`${car.img}`}
                 layout='fill'
-                objectFit='contain'
+                objectFit='cover'
               />
             </div>
           </div>
@@ -167,23 +189,27 @@ export default function Note () {
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexWrap: 'wrap',
-                px: 2
+                px: 2,
+                width: '100%'
               }}
             >
               <div
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
-                  alignItems: 'flex-start',
+                  alignItems: 'flex-end',
+                  mt: '-10%',
+                  mr: '30px'
+
                 }}
               >
                 <div
                 sx={{
                   display: 'flex',
-                  flexDirection: 'row'}}>
-                  <h2>{car.make}</h2><h4>{car.model}</h4>
+                  flexDirection: 'row', alignItems:'flex-end', ...theme.fontSizes.secondaryHeader}}>
+                  <h3>{car.make}</h3><h5 sx={{fontWeight: '400', ml: 2}}>{car.model}</h5>
                 </div>
-                <h4>From {`$ ${car.price.toLocaleString()}`}</h4>
+                <h4 sx={{...theme.fontSizes.callout, color: 'grey'}}>From {`$ ${car.price.toLocaleString()}`}</h4>
                 <div>
                   <button onClick={handleEdit}>Edit</button>
                   <button onClick={handleDelete}>Delete</button>
@@ -193,15 +219,17 @@ export default function Note () {
                 className='images'
                 style={{
                   position: 'relative',
-                  width: '50vw',
-                  paddingBottom: '30%'
+                  width: '35vw',
+                  paddingBottom: '30%',
+                  transform: 'perspective(400px) rotateY(-10deg)',
+                  boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.2)',
                 }}
               >
                 <Image
                   alt='car image'
                   src={`${car.img}`}
                   layout='fill'
-                  objectFit='contain'
+                  objectFit='cover'
                 />
               </div>
             </div>
