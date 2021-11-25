@@ -140,14 +140,6 @@ export default function Note () {
                 onChange={e => setPrice(e.target.value)}
               />
               </span>
-              <span>
-              <label sx={{...theme.fontSizes.callout, mr: 3}} htmlFor='url'>Image</label>
-              <input sx={{width: '15vw', height: '4vh', m: 1}}
-                type='text'
-                value={img}
-                onChange={e => setImg(e.target.value)}
-              />
-              </span>
               <div>
                 <button onClick={handleCancel}  
                    sx={{
