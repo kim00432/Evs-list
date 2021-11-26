@@ -111,67 +111,87 @@ export default function Note () {
         <form onSubmit={handleSubmit}>
           <div
             sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-              // flexWrap: 'wrap',
-              px: 2,
-              fontSize: 10
+              ...theme.components.listGrid,
+              alignItems: 'center'
             }}
           >
             <div
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'flex-end',
-                px: 0,
-                mr: '20px'
+                transform: 'translate(-16.5%)'
               }}
             >
-              <span>
+              <span
+                sx={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'flex-end',
+                  my: '4.5px'
+                }}
+              >
                 <label
-                  sx={{ ...theme.fontSizes.callout, mr: 3 }}
                   htmlFor='make'
+                  sx={{ ...theme.fontSizes.body, mr: '9px' }}
                 >
                   Make
                 </label>
                 <input
-                  sx={{ width: '15vw', height: '4vh', m: 1 }}
                   type='text'
                   value={make}
                   onChange={e => setMake(e.target.value)}
+                  sx={{ ...theme.components.input, ...theme.fontSizes.body }}
                 />
               </span>
-              <span>
+              <span
+                sx={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'flex-end',
+                  my: '4.5px'
+                }}
+              >
                 <label
-                  sx={{ ...theme.fontSizes.callout, mr: 3 }}
                   htmlFor='model'
+                  sx={{ ...theme.fontSizes.body, mr: '9px' }}
                 >
                   Model
                 </label>
                 <input
-                  sx={{ width: '15vw', height: '4vh', m: 1 }}
                   type='text'
                   value={model}
                   onChange={e => setModel(e.target.value)}
+                  sx={{ ...theme.components.input, ...theme.fontSizes.body }}
                 />
               </span>
-              <span>
+              <span
+                sx={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'flex-end',
+                  my: '4.5px'
+                }}
+              >
                 <label
-                  sx={{ ...theme.fontSizes.callout, mr: 3 }}
                   htmlFor='price'
+                  sx={{ ...theme.fontSizes.body, mr: '9px' }}
                 >
                   Price
                 </label>
                 <input
-                  sx={{ width: '15vw', height: '4vh', m: 1 }}
                   type='text'
                   value={price}
                   onChange={e => setPrice(e.target.value)}
+                  sx={{ ...theme.components.input, ...theme.fontSizes.body }}
                 />
               </span>
-              <div>
+              <div
+                sx={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'flex-end'
+                }}
+              >
                 <button
                   onClick={handleCancel}
                   sx={{
@@ -179,7 +199,7 @@ export default function Note () {
                     ...theme.fontSizes.callout,
                     backgroundColor: '#575757',
                     borderRadius: '7px',
-                    m: 3
+                    m: '9px'
                   }}
                 >
                   Cancel
@@ -201,10 +221,11 @@ export default function Note () {
               className='images'
               style={{
                 position: 'relative',
-                width: '35vw',
+                height: '161%',
+                width: '100%',
                 paddingBottom: '30%',
-                transform: 'perspective(400px) rotateY(-10deg)',
-                boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.2)'
+                transform: 'perspective(400px) rotateY(-5deg)',
+                boxShadow: '0px 9px 42px rgba(0, 0, 0, 0.14)'
               }}
             >
               <Image
@@ -223,7 +244,6 @@ export default function Note () {
               <div
                 sx={{
                   display: 'flex',
-                  // justifyContent: 'right',
                   flexDirection: 'column',
                   transform: 'translate(-16.5%)'
                 }}

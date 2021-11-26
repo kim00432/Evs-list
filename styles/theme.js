@@ -18,7 +18,7 @@ const theme = {
     accent: { color: '#31B8EF' },
     darkenAccent: { color: '#0573A6' },
     formBackground: { color: '#EFEFEF' },
-    formInput: { color: '#000000A8' }
+    formInput: { color: '#EFEFEF' }
   },
   containers: {
     page: {
@@ -54,6 +54,13 @@ const theme = {
     buttons: {
       border: 'none',
       backgroundColor: 'white'
+    },
+    input: {
+      border: 'none',
+      backgroundColor: '#EFEFEF',
+      borderRadius: '13px',
+      py: '9px',
+      px: '18px'
     },
     callToAction: {
       py: '10px',
