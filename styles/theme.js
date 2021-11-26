@@ -21,7 +21,7 @@ const theme = {
     accent: { color: '#31B8EF' },
     darkenAccent: { color: '#0573A6' },
     formBackground: { color: '#EFEFEF' },
-    formInput: { color: '#000000A8' }
+    formInput: { color: '#EFEFEF' }
   },
   containers: {
     page: {
@@ -54,6 +54,17 @@ const theme = {
       border: 'none',
       fontWeight: '400'
     },
+    buttons: {
+      border: 'none',
+      backgroundColor: 'white'
+    },
+    input: {
+      border: 'none',
+      backgroundColor: '#EFEFEF',
+      borderRadius: '13px',
+      py: '9px',
+      px: '18px'
+    },
     callToAction: {
       py: ['9.22px', '11.52px', '14px'],
       px: ['28.13px', '35.16px', '43.95px'],
@@ -74,7 +85,14 @@ const theme = {
       maxWidth: '1200px',
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-      gap: ['11.52px', '14px', '18px']
+      gap: '18px'
+    },
+    detailGrid: {
+      width: '80vw',
+      maxWidth: '1200px',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+      gap: '18px'
     }
   }
 }
