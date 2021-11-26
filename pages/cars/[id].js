@@ -179,7 +179,7 @@ export default function Note () {
                   Price
                 </label>
                 <input
-                  type='text'
+                  type='number'
                   value={price}
                   onChange={e => setPrice(e.target.value)}
                   sx={{ ...theme.components.input, ...theme.fontSizes.body }}
@@ -285,7 +285,7 @@ export default function Note () {
                       opacity: '66%'
                     }}
                   >
-                    From {`$ ${car.price.toLocaleString()}`}
+                    From {`$ ${Number(car.price).toLocaleString()}`}
                   </h4>
                 </div>
 
