@@ -20,7 +20,6 @@ export default function Create () {
     let make = ev.target.make.value
     let model = ev.target.model.value
     let price = ev.target.price.value
-    // let img = '/img/TeslaModelX.jpeg'
     fetchCall({ method: 'POST', payload: { make, model, price } })
     router.push('/cars')
   }
