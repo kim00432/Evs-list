@@ -25,6 +25,7 @@ export default function Home () {
                 }}
               >
                 Go to car list
+                <span className='material-icons'>chevron_right</span>
               </a>
             </Link>
           </p>

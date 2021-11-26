@@ -50,6 +50,9 @@ export default function Cars () {
                   >
                     {car.model}
                   </h2>
+                  <span className='material-icons' sx={theme.colors.accent}>
+                    chevron_right
+                  </span>
                 </div>
               </a>
             </Link>

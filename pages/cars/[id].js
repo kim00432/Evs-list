@@ -103,7 +103,7 @@ export default function Note () {
               top: '20vh'
             }}
           >
-            Back
+            <span className='material-icons'>chevron_left</span>Back
           </a>
         </Link>
       </p>
@@ -304,7 +304,7 @@ export default function Note () {
                     }}
                     onClick={handleEdit}
                   >
-                    Edit
+                    <span className='material-icons'>edit</span>
                   </button>
                   <button
                     sx={{
@@ -314,7 +314,7 @@ export default function Note () {
                     }}
                     onClick={handleDelete}
                   >
-                    Delete
+                    <span className='material-icons'>delete</span>
                   </button>
                 </div>
               </div>

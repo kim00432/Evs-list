@@ -18,3 +18,7 @@ a:visited,
 a:active {
   text-decoration: none;
 }
+
+.material-icons {
+  transform: translateY(16.5%);
+}

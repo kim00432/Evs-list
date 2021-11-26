@@ -55,7 +55,7 @@ export default function NavBar () {
               ...theme.fontSizes.headerLink
             }}
           >
-            Create new
+            Create new <span className='material-icons'>add</span>
           </a>
         </Link>
       </nav>
