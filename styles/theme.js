@@ -51,6 +51,10 @@ const theme = {
       border: 'none',
       fontWeight: '400'
     },
+    buttons: {
+      border: 'none',
+      backgroundColor: 'white'
+    },
     callToAction: {
       py: '10px',
       px: ['20px', '42px'],
@@ -67,6 +71,13 @@ const theme = {
       width: '100%'
     },
     listGrid: {
+      width: '80vw',
+      maxWidth: '1200px',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+      gap: '18px'
+    },
+    detailGrid: {
       width: '80vw',
       maxWidth: '1200px',
       display: 'grid',

@@ -18,7 +18,6 @@ export default function Note () {
   const [price, setPrice] = useState()
   const [img, setImg] = useState()
 
-
   useEffect(() => {
     console.log(`Fetching /api/cars/${id}`)
     let url = `/api/cars/${id}`
@@ -83,16 +82,29 @@ export default function Note () {
   }
 
   return (
-    <div 
-    sx={{
-      ...theme.containers.fullWidthContainer,
-      justifyContent: 'center',
-      flexDirection: 'column',
-      minHeight: '80vh'
-    }}>
-      <p sx={{ml: '-90%', mt: '-10%'}}>
+    <div
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        minHeight: '80vh'
+      }}
+    >
+      <p>
         <Link href='/cars'>
-          <a>Back</a>
+          <a
+            sx={{
+              ...theme.components.links,
+              ...theme.fontSizes.headerLink,
+              ...theme.colors.darkenAccent,
+              position: 'absolute',
+              left: '10vw',
+              top: '20vh'
+            }}
+          >
+            Back
+          </a>
         </Link>
       </p>
       {edit ? (
@@ -118,44 +130,69 @@ export default function Note () {
               }}
             >
               <span>
-              <label sx={{...theme.fontSizes.callout, mr: 3}} htmlFor='make'>Make</label>
-              <input sx={{width: '15vw', height: '4vh', m: 1}}
-                type='text'
-                value={make}
-                onChange={e => setMake(e.target.value)}
-              />
+                <label
+                  sx={{ ...theme.fontSizes.callout, mr: 3 }}
+                  htmlFor='make'
+                >
+                  Make
+                </label>
+                <input
+                  sx={{ width: '15vw', height: '4vh', m: 1 }}
+                  type='text'
+                  value={make}
+                  onChange={e => setMake(e.target.value)}
+                />
               </span>
               <span>
-              <label sx={{...theme.fontSizes.callout, mr: 3}} htmlFor='model'>Model</label>
-              <input sx={{width: '15vw', height: '4vh', m: 1}}
-                type='text'
-                value={model}
-                onChange={e => setModel(e.target.value)}
-              />
+                <label
+                  sx={{ ...theme.fontSizes.callout, mr: 3 }}
+                  htmlFor='model'
+                >
+                  Model
+                </label>
+                <input
+                  sx={{ width: '15vw', height: '4vh', m: 1 }}
+                  type='text'
+                  value={model}
+                  onChange={e => setModel(e.target.value)}
+                />
               </span>
               <span>
-              <label sx={{...theme.fontSizes.callout, mr: 3}} htmlFor='price'>Price</label>
-              <input sx={{width: '15vw', height: '4vh', m: 1}}
-                type='text'
-                value={price}
-                onChange={e => setPrice(e.target.value)}
-              />
+                <label
+                  sx={{ ...theme.fontSizes.callout, mr: 3 }}
+                  htmlFor='price'
+                >
+                  Price
+                </label>
+                <input
+                  sx={{ width: '15vw', height: '4vh', m: 1 }}
+                  type='text'
+                  value={price}
+                  onChange={e => setPrice(e.target.value)}
+                />
               </span>
               <div>
-                <button onClick={handleCancel}  
-                   sx={{
+                <button
+                  onClick={handleCancel}
+                  sx={{
                     ...theme.components.callToAction,
                     ...theme.fontSizes.callout,
                     backgroundColor: '#575757',
                     borderRadius: '7px',
                     m: 3
-                  }}>Cancel</button>
-                <button type='submit' onClick={handleSave}
+                  }}
+                >
+                  Cancel
+                </button>
+                <button
+                  type='submit'
+                  onClick={handleSave}
                   sx={{
-                    ...theme.components.callToAction, 
+                    ...theme.components.callToAction,
                     ...theme.fontSizes.callout,
                     borderRadius: '7px'
-                  }}>
+                  }}
+                >
                   Save
                 </button>
               </div>
@@ -167,7 +204,7 @@ export default function Note () {
                 width: '35vw',
                 paddingBottom: '30%',
                 transform: 'perspective(400px) rotateY(-10deg)',
-                boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.2)',
+                boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.2)'
               }}
             >
               <Image
@@ -181,48 +218,96 @@ export default function Note () {
         </form>
       ) : (
         car && (
-          <div sx={{ py: 2, px: 4, fontSize: 10 }}>
-            <div
-              sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                px: 2,
-                width: '100%'
-              }}
-            >
+          <div>
+            <div sx={{ ...theme.components.listGrid, alignItems: 'center' }}>
               <div
                 sx={{
                   display: 'flex',
+                  // justifyContent: 'right',
                   flexDirection: 'column',
-                  alignItems: 'flex-end',
-                  mt: '-10%',
-                  mr: '30px'
-
+                  transform: 'translate(-16.5%)'
                 }}
               >
                 <div
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'row', alignItems:'flex-end', ...theme.fontSizes.secondaryHeader}}>
-                  <h3>{car.make}</h3><h5 sx={{fontWeight: '400', ml: 2}}>{car.model}</h5>
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'baseline',
+                    justifyContent: 'flex-end'
+                  }}
+                >
+                  <h3 sx={{ ...theme.fontSizes.secondaryHeader, margin: '0' }}>
+                    {car.make}
+                  </h3>
+                  <h5
+                    sx={{
+                      ...theme.fontSizes.subHeader,
+                      fontWeight: '400',
+                      margin: '0',
+                      ml: '18px',
+                      mt: '18px'
+                    }}
+                  >
+                    {car.model}
+                  </h5>
                 </div>
-                <h4 sx={{...theme.fontSizes.callout, color: 'grey'}}>From {`$ ${car.price.toLocaleString()}`}</h4>
-                <div>
-                  <button onClick={handleEdit}>Edit</button>
-                  <button onClick={handleDelete}>Delete</button>
+
+                <div
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end'
+                  }}
+                >
+                  <h4
+                    sx={{
+                      margin: '0',
+                      ...theme.fontSizes.body,
+                      opacity: '66%'
+                    }}
+                  >
+                    From {`$ ${car.price.toLocaleString()}`}
+                  </h4>
+                </div>
+
+                <div
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end'
+                  }}
+                >
+                  <button
+                    sx={{
+                      ...theme.components.buttons,
+                      ml: '18px',
+                      mt: '18px'
+                    }}
+                    onClick={handleEdit}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    sx={{
+                      ...theme.components.buttons,
+                      ml: '18px',
+                      mt: '18px'
+                    }}
+                    onClick={handleDelete}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
+
               <div
                 className='images'
                 style={{
                   position: 'relative',
-                  width: '35vw',
+                  height: '180%',
+                  width: '100%',
                   paddingBottom: '30%',
-                  transform: 'perspective(400px) rotateY(-10deg)',
-                  boxShadow: '0px 10px 10px rgba(0, 0, 0, 0.2)',
+                  transform: 'perspective(400px) rotateY(-5deg)',
+                  boxShadow: '0px 9px 42px rgba(0, 0, 0, 0.14)'
                 }}
               >
                 <Image
