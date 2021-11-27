@@ -1,9 +1,11 @@
 /** @jsxImportSource theme-ui */
 
 import Link from 'next/dist/client/link'
-
+import Image from 'next/image'
+import theme from '../../styles/theme'
 import { useCars } from '../../components/context/carsContext'
 import router, { useRouter } from 'next/router'
+import defaultImage from '../../public/img/TeslaModelX.jpeg'
 
 export default function Create () {
   const [cars, fetchCall] = useCars()
@@ -18,15 +20,13 @@ export default function Create () {
     let make = ev.target.make.value
     let model = ev.target.model.value
     let price = ev.target.price.value
-    let url = ev.target.url.value
-
-    fetchCall({ method: 'POST', payload: { make, model, price, url } })
+    fetchCall({ method: 'POST', payload: { make, model, price } })
     router.push('/cars')
   }
 
   return (
-    <div sx={{ variant: 'containers.page' }}>
-      <h1 sx={{ py: 2, px: 4 }}>Create a new car</h1>
+      <div sx={{ variant: 'containers.page', flexDirection: 'column', mt: 0 }}>
+      <h1 sx={{  justifyContent: 'center', pb: 30 }}>Create a new car</h1>
       <div
         sx={{
           display: 'flex',
@@ -39,27 +39,131 @@ export default function Create () {
       >
         <div sx={{ width: '33%', p: 2 }}>
           <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor='make'>Make:</label>
-              <input name='make' type='text' />
+          <div
+            sx={{
+              ...theme.components.listGrid,
+              alignItems: 'center'
+            }}
+          >
+            <div
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                transform: 'translate(-16.5%)'
+              }}
+            >
+              <span
+                sx={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'flex-end',
+                  my: '4.5px'
+                }}
+              >
+                <label
+                  htmlFor='make'
+                  sx={{ ...theme.fontSizes.body, mr: '9px' }}
+                >
+                  Make
+                </label>
+                <input
+                  type='text'
+                  name='make'
+                  sx={{ ...theme.components.input, ...theme.fontSizes.body }}
+                />
+              </span>
+              <span
+                sx={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'flex-end',
+                  my: '4.5px'
+                }}
+              >
+                <label
+                  htmlFor='model'
+                  sx={{ ...theme.fontSizes.body, mr: '9px' }}
+                >
+                  Model
+                </label>
+                <input
+                  type='text'
+                  name='model'
+                  sx={{ ...theme.components.input, ...theme.fontSizes.body }}
+                />
+              </span>
+              <span
+                sx={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'flex-end',
+                  my: '4.5px'
+                }}
+              >
+                <label
+                  htmlFor='price'
+                  sx={{ ...theme.fontSizes.body, mr: '9px' }}
+                >
+                  Price
+                </label>
+                <input
+                  type='number'
+                  name='price'
+                  sx={{ ...theme.components.input, ...theme.fontSizes.body }}
+                />
+              </span>
+              <div
+                sx={{
+                  display: 'flex',
+                  alignItems: 'baseline',
+                  justifyContent: 'flex-end'
+                }}
+              >
+                <button
+                  sx={{
+                    ...theme.components.callToAction,
+                    ...theme.fontSizes.callout,
+                    backgroundColor: '#575757',
+                    borderRadius: '7px',
+                    m: '9px'
+                  }}
+                >
+                  Cancel
+                </button>
+                <button
+                  type='submit'
+                  sx={{
+                    ...theme.components.callToAction,
+                    ...theme.fontSizes.callout,
+                    borderRadius: '7px'
+                  }}
+                >
+                  Save
+                </button>
+              </div>
             </div>
-            <div>
-              <label htmlFor='model'>Model:</label>
-              <input name='model' type='text' />
+            <div
+              className='images'
+              style={{
+                position: 'relative',
+                height: '100%', 
+                width: '100%',
+                paddingBottom: '30%',
+                transform: 'perspective(400px) rotateY(-5deg)',
+                boxShadow: '0px 9px 42px rgba(0, 0, 0, 0.14)'
+              }}
+            >
+              <Image
+                alt='car image'
+                src={defaultImage}
+                layout='fill'
+                objectFit='cover'
+              />
             </div>
-            <div>
-              <label htmlFor='price'>Price:</label>
-              <input name='price' type='number' />
-            </div>
-            <div>
-              <label htmlFor='url'>Image link:</label>
-              <input name='url' type='url' />
-            </div>
-
-            <button type='submit'>Save</button>
-          </form>
+          </div>
+        </form>
         </div>
       </div>
-    </div>
+      </div>
   )
 }

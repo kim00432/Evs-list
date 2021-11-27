@@ -1,5 +1,5 @@
 
-- refreshing /cars/ gives error - context call??
+X refreshing /cars/ gives error - context call??
 
 X allow web image urls to display on detail page
 

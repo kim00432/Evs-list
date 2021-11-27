@@ -16,7 +16,7 @@ export default function Note () {
   const [make, setMake] = useState()
   const [model, setModel] = useState()
   const [price, setPrice] = useState()
-  const [img, setImg] = useState()
+  console.log(car)
 
   useEffect(() => {
     console.log(`Fetching /api/cars/${id}`)
@@ -44,7 +44,6 @@ export default function Note () {
 
   function handleEdit () {
     setEdit(true)
-    setImg(car.img)
     setMake(car.make)
     setModel(car.model)
     setPrice(car.price)
@@ -58,10 +57,9 @@ export default function Note () {
     const updatedCar = {
       make: make,
       model: model,
-      price: price,
-      img: img
+      price: price
     }
-    await fetchCall({ method: 'PATCH', payload: { id: car.id, ...updatedCar } })
+    await fetchCall({ method: 'PATCH', payload: { id: car.id, img: car.img, ...updatedCar } })
     setCar({ id: car.id, ...updatedCar })
     console.log(car)
     setEdit(false)
@@ -179,7 +177,7 @@ export default function Note () {
                   Price
                 </label>
                 <input
-                  type='text'
+                  type='number'
                   value={price}
                   onChange={e => setPrice(e.target.value)}
                   sx={{ ...theme.components.input, ...theme.fontSizes.body }}
@@ -230,7 +228,7 @@ export default function Note () {
             >
               <Image
                 alt='car image'
-                src={`${car.img}`}
+                src={car.img || '/img/TeslaModelX.jpeg'}
                 layout='fill'
                 objectFit='cover'
               />
@@ -239,6 +237,7 @@ export default function Note () {
         </form>
       ) : (
         car && (
+          
           <div>
             <div sx={{ ...theme.components.listGrid, alignItems: 'center' }}>
               <div
@@ -285,7 +284,7 @@ export default function Note () {
                       opacity: '66%'
                     }}
                   >
-                    From {`$ ${car.price.toLocaleString()}`}
+                    From {`$ ${Number(car.price).toLocaleString()}`}
                   </h4>
                 </div>
 
@@ -332,7 +331,7 @@ export default function Note () {
               >
                 <Image
                   alt='car image'
-                  src={`${car.img}`}
+                  src={car.img || '/img/TeslaModelX.jpeg'}
                   layout='fill'
                   objectFit='cover'
                 />
