@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-import Link from 'next/dist/client/link'
 import Image from 'next/image'
 import theme from '../../styles/theme'
 import { useCars } from '../../components/context/carsContext'
@@ -10,10 +9,6 @@ import defaultImage from '../../public/img/TeslaModelX.jpeg'
 export default function Create () {
   const [cars, fetchCall] = useCars()
   const router = useRouter()
-
-  const handleDelete = () => {
-    fetchCall({ method: 'DELETE', payload: { id: car.id } })
-  }
 
   function handleSubmit (ev) {
     ev.preventDefault()
