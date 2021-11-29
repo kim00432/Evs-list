@@ -60,7 +60,7 @@ export default function Note () {
       model: model,
       price: price
     }
-    if (make.trim() !== '' && model.trim() !== '' && price !=='') {
+    if (make.trim() !== '' && model.trim() !== '' && price !== '') {
       await fetchCall({ method: 'PATCH', payload: { id: car.id, img: car.img, ...updatedCar } })
       setCar({ id: car.id, ...updatedCar })
       console.log(car)

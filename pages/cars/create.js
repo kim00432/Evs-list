@@ -28,6 +28,11 @@ export default function Create () {
     }
   }
 
+  function handleCancel(ev) {
+     //go back to list page
+    router.push('/cars')
+  }
+
   return (
       <div sx={{ variant: 'containers.page', flexDirection: 'column', mt: 0 }}>
       <h1 sx={{  justifyContent: 'center', pb: [0, 30], ...theme.fontSizes.secondaryHeader }}>Create a new car</h1>
@@ -112,6 +117,7 @@ export default function Create () {
                     borderRadius: '7px',
                     m: '9px'
                   }}
+                  onClick={handleCancel}
                 >
                   Cancel
                 </button>
