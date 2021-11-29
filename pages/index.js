@@ -21,7 +21,9 @@ export default function Home () {
               <a
                 sx={{
                   ...theme.fontSizes.headerLink,
-                  ...theme.colors.darkenAccent
+                  ...theme.colors.darkenAccent,
+                  display: 'flex',
+                  alignItems: 'center'
                 }}
               >
                 Go to car list
