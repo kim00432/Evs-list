@@ -93,6 +93,17 @@ const theme = {
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
       gap: '18px'
+    }, 
+    span: {
+      display: 'flex',
+      alignItems: 'baseline',
+      justifyContent: 'flex-end',
+      my: '4.5px'
+    },
+    div: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-end'
     }
   }
 }

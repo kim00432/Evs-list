@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-import Link from 'next/dist/client/link'
 import Image from 'next/image'
 import theme from '../../styles/theme'
 import { useCars } from '../../components/context/carsContext'
@@ -11,22 +10,27 @@ export default function Create () {
   const [cars, fetchCall] = useCars()
   const router = useRouter()
 
-  const handleDelete = () => {
-    fetchCall({ method: 'DELETE', payload: { id: car.id } })
-  }
-
   function handleSubmit (ev) {
     ev.preventDefault()
     let make = ev.target.make.value
     let model = ev.target.model.value
     let price = ev.target.price.value
-    fetchCall({ method: 'POST', payload: { make, model, price } })
+    if (make.trim() !== '' && model.trim() !== '' && price !=='') {
+      fetchCall({ method: 'POST', payload: { make, model, price } })
+      router.push('/cars')
+    } else {
+      alert('Please enter valid input')
+    }
+  }
+
+  function handleCancel(ev) {
+     //go back to list page
     router.push('/cars')
   }
 
   return (
       <div sx={{ variant: 'containers.page', flexDirection: 'column', mt: 0 }}>
-      <h1 sx={{  justifyContent: 'center', pb: 30 }}>Create a new car</h1>
+      <h1 sx={{  justifyContent: 'center', pb: [0, 30], ...theme.fontSizes.secondaryHeader }}>Create a new car</h1>
       <div
         sx={{
           display: 'flex',
@@ -53,12 +57,7 @@ export default function Create () {
               }}
             >
               <span
-                sx={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'flex-end',
-                  my: '4.5px'
-                }}
+                sx={{ ...theme.components.span }}
               >
                 <label
                   htmlFor='make'
@@ -73,12 +72,7 @@ export default function Create () {
                 />
               </span>
               <span
-                sx={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'flex-end',
-                  my: '4.5px'
-                }}
+                sx={{ ...theme.components.span }}
               >
                 <label
                   htmlFor='model'
@@ -93,12 +87,7 @@ export default function Create () {
                 />
               </span>
               <span
-                sx={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'flex-end',
-                  my: '4.5px'
-                }}
+                sx={{ ...theme.components.span }}
               >
                 <label
                   htmlFor='price'
@@ -113,11 +102,7 @@ export default function Create () {
                 />
               </span>
               <div
-                sx={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'flex-end'
-                }}
+                 sx={{ ...theme.components.span, my: 0 }}
               >
                 <button
                   sx={{
@@ -127,6 +112,7 @@ export default function Create () {
                     borderRadius: '7px',
                     m: '9px'
                   }}
+                  onClick={handleCancel}
                 >
                   Cancel
                 </button>
@@ -148,7 +134,7 @@ export default function Create () {
                 position: 'relative',
                 height: '100%', 
                 width: '100%',
-                paddingBottom: '30%',
+                paddingBottom: '50%',
                 transform: 'perspective(400px) rotateY(-5deg)',
                 boxShadow: '0px 9px 42px rgba(0, 0, 0, 0.14)'
               }}
