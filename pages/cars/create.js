@@ -26,7 +26,7 @@ export default function Create () {
 
   return (
       <div sx={{ variant: 'containers.page', flexDirection: 'column', mt: 0 }}>
-      <h1 sx={{  justifyContent: 'center', pb: 30 }}>Create a new car</h1>
+      <h1 sx={{  justifyContent: 'center', pb: [0, 30], ...theme.fontSizes.secondaryHeader }}>Create a new car</h1>
       <div
         sx={{
           display: 'flex',
@@ -148,7 +148,7 @@ export default function Create () {
                 position: 'relative',
                 height: '100%', 
                 width: '100%',
-                paddingBottom: '30%',
+                paddingBottom: '50%',
                 transform: 'perspective(400px) rotateY(-5deg)',
                 boxShadow: '0px 9px 42px rgba(0, 0, 0, 0.14)'
               }}

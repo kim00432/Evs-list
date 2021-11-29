@@ -119,7 +119,7 @@ export default function Note () {
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                transform: 'translate(-16.5%)'
+                transform: ['translateY(-25%)', 'translate(-16.5%)']
               }}
             >
               <span
@@ -221,7 +221,7 @@ export default function Note () {
               className='images'
               style={{
                 position: 'relative',
-                height: '161%',
+                height: '150%',
                 width: '100%',
                 paddingBottom: '30%',
                 transform: 'perspective(400px) rotateY(-5deg)',
@@ -246,7 +246,7 @@ export default function Note () {
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
-                  transform: 'translate(-16.5%)'
+                  transform: ['translateY(-40%)', 'translate(-16.5%)']
                 }}
               >
                 <div
