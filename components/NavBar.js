@@ -52,7 +52,9 @@ export default function NavBar () {
             style={locationListener()}
             sx={{
               ...theme.components.callToAction,
-              ...theme.fontSizes.headerLink
+              ...theme.fontSizes.headerLink,
+              display: 'flex',
+              alignItems: 'center'
             }}
           >
             Create new <span className='material-icons'>add</span>
