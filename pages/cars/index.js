@@ -21,43 +21,44 @@ export default function Cars () {
     >
       <h1 sx={theme.fontSizes.secondaryHeader}>Cars</h1>
       <div sx={theme.components.listGrid}>
-        {cars.cars.map(car => (
-          <div key={car.id} sx={{ ...theme.containers.card }}>
-            <Link key={car.id} href='/cars/[id]' as={`/cars/${car.id}`}>
-              <a>
-                <div
-                  sx={{
-                    ...theme.components.centering
-                  }}
-                >
-                  <h1
+        {cars &&
+          cars.cars.map(car => (
+            <div key={car.id} sx={{ ...theme.containers.card }}>
+              <Link key={car.id} href='/cars/[id]' as={`/cars/${car.id}`}>
+                <a>
+                  <div
                     sx={{
-                      fontSize: '1em',
-                      margin: '0',
-                      ...theme.fontSizes.subHeader,
-                      ...theme.colors.body
+                      ...theme.components.centering
                     }}
                   >
-                    {car.make}
-                  </h1>
-                  <h2
-                    sx={{
-                      fontSize: '1em',
-                      margin: '0',
-                      ...theme.fontSizes.body,
-                      ...theme.colors.body
-                    }}
-                  >
-                    {car.model}
-                  </h2>
-                  <span className='material-icons' sx={theme.colors.accent}>
-                    chevron_right
-                  </span>
-                </div>
-              </a>
-            </Link>
-          </div>
-        ))}
+                    <h1
+                      sx={{
+                        fontSize: '1em',
+                        margin: '0',
+                        ...theme.fontSizes.subHeader,
+                        ...theme.colors.body
+                      }}
+                    >
+                      {car.make}
+                    </h1>
+                    <h2
+                      sx={{
+                        fontSize: '1em',
+                        margin: '0',
+                        ...theme.fontSizes.body,
+                        ...theme.colors.body
+                      }}
+                    >
+                      {car.model}
+                    </h2>
+                    <span className='material-icons' sx={theme.colors.accent}>
+                      chevron_right
+                    </span>
+                  </div>
+                </a>
+              </Link>
+            </div>
+          ))}
       </div>
     </div>
   )
