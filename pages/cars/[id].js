@@ -100,7 +100,9 @@ export default function Note () {
               ...theme.colors.darkenAccent,
               position: 'absolute',
               left: '10vw',
-              top: '20vh'
+              top: '20vh',
+              display: 'flex',
+              alignItems: 'center'
             }}
           >
             <span className='material-icons'>chevron_left</span>Back
