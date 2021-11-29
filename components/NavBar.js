@@ -1,11 +1,10 @@
 /** @jsxImportSource theme-ui */
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
+import theme from '../styles/theme'
+import { useMediaQuery } from 'react-responsive'
 
 // See: https://theme-ui.com/components
-
-//alternate way of using the sx prop
-// sx={(theme)=> { now you have the theme object }}
 
 export default function NavBar () {
   let routeListener = useRouter().pathname
@@ -17,45 +16,109 @@ export default function NavBar () {
     }
   }
 
+  const isSmallerScreen = useMediaQuery({ query: '(max-width: 500px)' })
+
   return (
-    <header
-      sx={{
-        height: '60px',
-        width: '100vw',
-        bg: 'primary',
-        borderBottom: '5px solid',
-        borderColor: 'karim',
-        backgroundColor: `accent`,
-        color: `text`,
-        py: 2,
-        px: 4
-      }}
-    >
-      <nav
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          variant: 'containers.page',
-          height: '100%'
-        }}
-      >
-        <Link href='/'>
-          <a sx={{ px: 2, fontWeight: 'bold', fontSize: 4, cursor: 'pointer' }}>
-            Cars App
-          </a>
-        </Link>
+    <header sx={{ ...theme.containers.fullWidthContainer, height: '10vh' }}>
+      {isSmallerScreen && (
+        <nav sx={theme.components.centering}>
+          <div sx={{ display: 'flex' }}>
+            <Link href='/'>
+              <a sx={{ ...theme.fontSizes.header, ...theme.colors.accent }}>
+                EVs List
+              </a>
+            </Link>
+            <p
+              sx={{
+                pl: '9px',
+                ...theme.fontSizes.callout,
+                ...theme.colors.lightBody
+              }}
+            >
+              Next.JS
+            </p>
+          </div>
 
-        <Link href='/cars'>
-          <a sx={{ px: 2, color: 'text', fontSize: 3, cursor: 'pointer' }}>
-            Cars
-          </a>
-        </Link>
+          <Link href='/cars'>
+            <a
+              sx={{
+                ...theme.components.links,
+                ...theme.fontSizes.headerLink,
+                ...theme.colors.darkenAccent
+              }}
+            >
+              Car list
+            </a>
+          </Link>
 
-        <button style={locationListener()}>
-          <Link href='/cars/create'>Add car</Link>
-        </button>
-      </nav>
+          <Link href='/cars/create'>
+            <a
+              style={locationListener()}
+              sx={{
+                ...theme.components.callToAction,
+                // py: '9.22px',
+                px: '18px',
+                boxShadow: '0px 9px 36px rgba(5, 115, 166, 0.28)',
+                ...theme.fontSizes.headerLink,
+                display: 'flex',
+                alignItems: 'center',
+                position: 'fixed',
+                bottom: '10vh',
+                right: '10vw'
+              }}
+            >
+              <span className='material-icons'>add</span>Create
+            </a>
+          </Link>
+        </nav>
+      )}
+
+      {!isSmallerScreen && (
+        <nav sx={theme.components.centering}>
+          <div sx={{ display: 'flex' }}>
+            <Link href='/'>
+              <a sx={{ ...theme.fontSizes.header, ...theme.colors.accent }}>
+                EVs List
+              </a>
+            </Link>
+            <p
+              sx={{
+                pl: '9px',
+                ...theme.fontSizes.callout,
+                ...theme.colors.lightBody
+              }}
+            >
+              Next.JS
+            </p>
+          </div>
+
+          <Link href='/cars'>
+            <a
+              sx={{
+                ...theme.components.links,
+                ...theme.fontSizes.headerLink,
+                ...theme.colors.darkenAccent
+              }}
+            >
+              Car list
+            </a>
+          </Link>
+
+          <Link href='/cars/create'>
+            <a
+              style={locationListener()}
+              sx={{
+                ...theme.components.callToAction,
+                ...theme.fontSizes.headerLink,
+                display: 'flex',
+                alignItems: 'center'
+              }}
+            >
+              Create new <span className='material-icons'>add</span>
+            </a>
+          </Link>
+        </nav>
+      )}
     </header>
   )
 }

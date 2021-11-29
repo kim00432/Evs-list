@@ -1,31 +1,35 @@
 /** @jsxImportSource theme-ui */
 
 import Link from 'next/link'
-// import styles from '../styles/Index.module.css';
+import styles from '../styles/Index.module.css'
+import theme from '../styles/theme'
 
 export default function Home () {
-  // console.log(notes); //props.notes
-
   return (
-    <div sx={{ height: `calc(100vh - 60px)` }}>
-      <div
-        sx={{
-          variant: 'containers.page',
-          display: 'flex',
-          alignItems: 'flex-start',
-          height: '100%'
-        }}
-      >
+    <div sx={{ ...theme.containers.page }}>
+      <div>
         <div>
-          <h1 sx={{ fontSize: 8, p: 2 }}>Cars App</h1>
-          <p sx={{ p: 2 }}>
-            Click the Cars link at the top to see all our cars.
+          <h1 sx={theme.fontSizes.subHeader}>
+            Welcome to our electronic vehicles database
+          </h1>
+          <p sx={{ maxWidth: '590px' }}>
+            Here you will be able to compare prices across different types of
+            cars. Tap the link to get started!
           </p>
-          <p sx={{ p: 2 }}>
+          <p>
             <Link href='/cars'>
-              <a>Or tap here if this is closer</a>
+              <a
+                sx={{
+                  ...theme.fontSizes.headerLink,
+                  ...theme.colors.darkenAccent,
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+              >
+                Go to car list
+                <span className='material-icons'>chevron_right</span>
+              </a>
             </Link>
-            .
           </p>
         </div>
       </div>

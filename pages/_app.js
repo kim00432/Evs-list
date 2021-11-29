@@ -4,20 +4,26 @@ import { ThemeProvider } from 'theme-ui'
 import theme from '../styles/theme'
 import '../styles/globals.css'
 import Layout from '../components/Layout'
-import { useState, useEffect } from 'react'
+import NextNProgress from 'nextjs-progressbar';
 
 import { CarsProvider } from '../components/context/carsContext'
 
 function MyApp ({ Component, pageProps }) {
+
   return (
-    <CarsProvider>
       <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <CarsProvider>
+          <Layout>
+            <NextNProgress 
+            color="#29D"
+            startPosition={0.3}
+            stopDelayMs={200}
+            height={3}
+            showOnShallow={true}/>
+            <Component {...pageProps} />
+          </Layout>
+        </CarsProvider>
       </ThemeProvider>
-    </CarsProvider>
   )
 }
-
 export default MyApp
