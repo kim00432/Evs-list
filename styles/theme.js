@@ -1,56 +1,111 @@
-import { polaris } from '@theme-ui/presets';
-
-//see https://theme-ui.com/demo for Polaris colors
-//see /styles/polaris-ref.json for full Polaris theme
-//config - https://theme-ui.com/theming#configuration-flags
-
 const theme = {
-  ...polaris,
   config: {
-    initialColorModeName: 'bubba',
-    useBorderBox: true,
-    useLocalStorage: true, //to save mode in localstorage
+    initialColorModeName: 'JC-Yoona',
+    useBorderBox: true
+  },
+  fontSizes: {
+    header: { fontSize: ['28.13px', '35.16px', '43.95px'], fontWeight: '600' },
+    secondaryHeader: {
+      fontSize: ['22.5px', '28.13px', '35.16px'],
+      fontWeight: '500'
+    },
+    subHeader: { fontSize: ['18px', '22.5px', '28.13px'], fontWeight: '500' },
+    headerLink: { fontSize: ['14px', '18px', '22.5px'], fontWeight: '400' },
+    body: { fontSize: ['11.52px', '14px', '18px'], fontWeight: '400' },
+    callout: { fontSize: ['9.22px', '11.52px', '14px'], fontWeight: '400' }
   },
   colors: {
-    karim: '#bada55', //we can make up color names
-    text: '#454f5b',
-    background: '#fff',
-    primary: '#5c6ac4',
-    secondary: '#006fbb',
-    highlight: '#47c1bf',
-    muted: '#e6e6e6',
-    gray: '#dfe3e8',
-    accent: '#f49342',
-    darken: '#00044c',
-    modes: {
-      dark: {
-        text: '#3e4155',
-        background: '#000639',
-        primary: '#9c6ade',
-        secondary: '#b4e1fa',
-        highlight: '#b7ecec',
-        muted: '#e6e6e6',
-      },
-    },
+    background: { color: '#ffffff' },
+    lightBody: { color: '#00000029' },
+    body: { color: '#000000' },
+    accent: { color: '#31B8EF' },
+    darkenAccent: { color: '#0573A6' },
+    formBackground: { color: '#EFEFEF' },
+    formInput: { color: '#EFEFEF' }
   },
   containers: {
     page: {
-      width: '100%',
-      maxWidth: '960px',
-      m: 0,
-      mx: 'auto',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '80vw',
+      minHeight: '80vh',
+      maxWidth: '1200px',
+      mx: '10vw'
+    },
+    fullWidthContainer: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      width: '80vw',
+      mx: '10vw'
     },
     card: {
-      boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
-      border: '1px solid',
-      borderColor: 'muted',
-      borderRadius: '4px',
-      p: 2,
+      boxShadow: '0px 18px 42px rgba(5, 115, 166, 0.14)',
+      backgroundColor: '#00000',
+      borderRadius: '13px',
+      px: ['22.5px', '28.13px', '35.16px'],
+      py: ['11.52px', '14px', '18px']
+    }
+  },
+  components: {
+    links: {
+      textDecoration: 'none',
+      border: 'none',
+      fontWeight: '400'
     },
-  },
-  styles: {
-    ...polaris.styles,
-  },
-};
+    buttons: {
+      border: 'none',
+      backgroundColor: 'white'
+    },
+    input: {
+      border: 'none',
+      backgroundColor: '#EFEFEF',
+      borderRadius: '13px',
+      py: '9px',
+      px: '18px'
+    },
+    callToAction: {
+      py: ['9.22px', '11.52px', '14px'],
+      px: ['28.13px', '35.16px', '43.95px'],
+      color: '#ffffff',
+      backgroundColor: '#31B8EF',
+      border: 'none',
+      borderRadius: '13px',
+      boxShadow: '0px 18px 42px rgba(5, 115, 166, 0.14)'
+    },
+    centering: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      width: '100%'
+    },
+    listGrid: {
+      width: '80vw',
+      maxWidth: '1200px',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+      gap: '18px'
+    },
+    detailGrid: {
+      width: '80vw',
+      maxWidth: '1200px',
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+      gap: '18px'
+    }, 
+    span: {
+      display: 'flex',
+      alignItems: 'baseline',
+      justifyContent: 'flex-end',
+      my: '4.5px'
+    },
+    div: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-end'
+    }
+  }
+}
 
-export default theme;
+export default theme

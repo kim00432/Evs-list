@@ -1,17 +1,19 @@
 /** @jsxImportSource theme-ui */
 
-export default function Footer() {
+import theme from '../styles/theme'
+
+export default function Footer () {
   return (
     <footer
       sx={{
-        position: 'fixed',
-        bottom: 0,
-        width: '100vw',
-        display: 'flex',
+        ...theme.containers.fullWidthContainer,
         justifyContent: 'center',
+        minHeight: '10vh'
       }}
     >
-      <p>&copy; 2021 Chicken Stuffing</p>
+      <p sx={{ ...theme.fontSizes.callout, ...theme.colors.lightBody }}>
+        &copy; 2021 Yoona Kim and JC Castagne
+      </p>
     </footer>
-  );
+  )
 }
