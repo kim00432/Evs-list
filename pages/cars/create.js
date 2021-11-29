@@ -20,8 +20,12 @@ export default function Create () {
     let make = ev.target.make.value
     let model = ev.target.model.value
     let price = ev.target.price.value
-    fetchCall({ method: 'POST', payload: { make, model, price } })
-    router.push('/cars')
+    if (make.trim() !== '' && model.trim() !== '' && price !=='') {
+      fetchCall({ method: 'POST', payload: { make, model, price } })
+      router.push('/cars')
+    } else {
+      alert('Please enter valid input')
+    }
   }
 
   return (

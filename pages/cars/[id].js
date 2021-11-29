@@ -54,22 +54,27 @@ export default function Note () {
   }
 
   async function handleSave (ev) {
+    ev.preventDefault()
     const updatedCar = {
       make: make,
       model: model,
       price: price
     }
-    await fetchCall({ method: 'PATCH', payload: { id: car.id, img: car.img, ...updatedCar } })
-    setCar({ id: car.id, ...updatedCar })
-    console.log(car)
-    setEdit(false)
-    setMake('')
-    setModel('')
-    setPrice('')
+    if (make.trim() !== '' && model.trim() !== '' && price !=='') {
+      await fetchCall({ method: 'PATCH', payload: { id: car.id, img: car.img, ...updatedCar } })
+      setCar({ id: car.id, ...updatedCar })
+      console.log(car)
+      setEdit(false)
+      setMake('')
+      setModel('')
+      setPrice('')
+    } else {
+      alert('Please enter valid input')
+    }
   }
 
   function handleSubmit (ev) {
-    ev.PreventDefault()
+    ev.preventDefault()
   }
 
   const handleDelete = async () => {
