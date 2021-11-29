@@ -1,17 +1,22 @@
 // /api/cars end point
 import nc from 'next-connect'
-import cars from '../../../datasource/data'
-import cuid from 'cuid'
+import { loadCars, saveCars } from '../../../datasource/fs-util'
+
+let cars = []
 
 const handler = nc()
   .get((req, res) => {
-    //returns all cars
+    cars = loadCars('data.json')
     res.json({ cars: cars })
   })
   .post((req, res) => {
-    //adds a new note
+    if (cars.length === 0) {
+      cars = loadCars('data.json')
+    }
+
     const newCar = req.body
     cars.push(newCar)
+    saveCars(cars, 'data.json')
     res.json({ newCar: newCar })
   })
 
