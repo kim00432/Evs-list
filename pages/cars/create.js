@@ -53,12 +53,7 @@ export default function Create () {
               }}
             >
               <span
-                sx={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'flex-end',
-                  my: '4.5px'
-                }}
+                sx={{ ...theme.components.span }}
               >
                 <label
                   htmlFor='make'
@@ -73,12 +68,7 @@ export default function Create () {
                 />
               </span>
               <span
-                sx={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'flex-end',
-                  my: '4.5px'
-                }}
+                sx={{ ...theme.components.span }}
               >
                 <label
                   htmlFor='model'
@@ -93,12 +83,7 @@ export default function Create () {
                 />
               </span>
               <span
-                sx={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'flex-end',
-                  my: '4.5px'
-                }}
+                sx={{ ...theme.components.span }}
               >
                 <label
                   htmlFor='price'
@@ -113,11 +98,7 @@ export default function Create () {
                 />
               </span>
               <div
-                sx={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'flex-end'
-                }}
+                 sx={{ ...theme.components.span, my: 0 }}
               >
                 <button
                   sx={{

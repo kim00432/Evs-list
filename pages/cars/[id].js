@@ -123,12 +123,7 @@ export default function Note () {
               }}
             >
               <span
-                sx={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'flex-end',
-                  my: '4.5px'
-                }}
+                sx={{...theme.components.span}}
               >
                 <label
                   htmlFor='make'
@@ -144,12 +139,7 @@ export default function Note () {
                 />
               </span>
               <span
-                sx={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'flex-end',
-                  my: '4.5px'
-                }}
+                sx={{...theme.components.span}}
               >
                 <label
                   htmlFor='model'
@@ -165,12 +155,7 @@ export default function Note () {
                 />
               </span>
               <span
-                sx={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'flex-end',
-                  my: '4.5px'
-                }}
+                sx={{...theme.components.span}}
               >
                 <label
                   htmlFor='price'
@@ -186,11 +171,7 @@ export default function Note () {
                 />
               </span>
               <div
-                sx={{
-                  display: 'flex',
-                  alignItems: 'baseline',
-                  justifyContent: 'flex-end'
-                }}
+                 sx={{ ...theme.components.span, my: 0 }}
               >
                 <button
                   onClick={handleCancel}
@@ -250,11 +231,7 @@ export default function Note () {
                 }}
               >
                 <div
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'baseline',
-                    justifyContent: 'flex-end'
-                  }}
+                  sx={{ ...theme.components.span, my: 0 }}
                 >
                   <h3 sx={{ ...theme.fontSizes.secondaryHeader, margin: '0' }}>
                     {car.make}
@@ -273,11 +250,7 @@ export default function Note () {
                 </div>
 
                 <div
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'flex-end'
-                  }}
+                   sx={{ ...theme.components.div }}
                 >
                   <h4
                     sx={{
@@ -291,11 +264,7 @@ export default function Note () {
                 </div>
 
                 <div
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'flex-end'
-                  }}
+                  sx={{ ...theme.components.div }}
                 >
                   <button
                     sx={{
