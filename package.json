@@ -1,5 +1,5 @@
 {
-  "name": "friday-next",
+  "name": "EV's List",
   "private": true,
   "scripts": {
     "dev": "next dev",
