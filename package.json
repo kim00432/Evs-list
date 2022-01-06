@@ -1,5 +1,5 @@
 {
-  "name": "EV's List",
+  "name": "next_app",
   "private": true,
   "scripts": {
     "dev": "next dev",
